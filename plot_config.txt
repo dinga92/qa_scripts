@@ -1,0 +1,51 @@
+# plot motion
+1st_cleaning/mc
+
+# func mask
+mean_func.nii.gz x 5 add_contours mask.nii.gz
+
+# T1
+T1.nii.gz x 5 add_contours highres_mask.nii.gz
+
+# fucn to t1
+T1.nii.gz x 5 add_contours reg/fMRI_example_func_ns2highres_fast_wmseg.nii.gz
+T1.nii.gz y 5 add_contours reg/fMRI_example_func_ns2highres_fast_wmseg.nii.gz
+T1.nii.gz z 5 add_contours reg/fMRI_example_func_ns2highres_fast_wmseg.nii.gz
+
+# fucn to t1
+T1.nii.gz x 5 add_contours reg/mask_highres.nii.gz
+
+# T1 to MNI
+#T1_to_MNI_2mm.nii.gz x 5 add_contours /home/common/applications/FSL/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz
+#T1_to_MNI_2mm.nii.gz y 5 add_contours /home/common/applications/FSL/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz
+#T1_to_MNI_2mm.nii.gz z 5 add_contours /home/common/applications/FSL/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz
+
+# mean func to MNI
+#reg/mean_func_mni.nii.gz x 5 add_contours /home/common/applications/FSL/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz
+#reg/mean_func_mni.nii.gz y 5 add_contours /home/common/applications/FSL/fsl/data/standard/MNI152_T1_2mm_brain.nii.gz
+#reg/mean_func_mni.nii.gz z 5 add_contours /home/common/applications/FSL/fsl/data/standard//MNI152_T1_2mm_brain.nii.gz
+
+# nuisance mask
+mean_func.nii.gz x 5 add_contours nuisance/wm_mask.nii.gz
+mean_func.nii.gz y 5 add_contours nuisance/wm_mask.nii.gz
+mean_func.nii.gz z 5 add_contours nuisance/wm_mask.nii.gz
+mean_func.nii.gz x 5 add_contours nuisance/csf_mask.nii.gz
+mean_func.nii.gz y 5 add_contours nuisance/csf_mask.nii.gz
+mean_func.nii.gz z 5 add_contours nuisance/csf_mask.nii.gz
+
+#tsnr
+mosaic tsnr/func_tsnr.nii.gz x 8 0.6
+mosaic tsnr/func_tsnr.nii.gz y 8 0.6
+mosaic tsnr/func_tsnr.nii.gz z 10 0.4
+
+mosaic tsnr/cleaned_data_tsnr.nii.gz x 8 0.6
+mosaic tsnr/cleaned_data_tsnr.nii.gz y 8 0.6
+mosaic tsnr/cleaned_data_tsnr.nii.gz z 10 0.4
+
+mosaic tsnr/denoised_func_data_nonaggr_tsnr.nii.gz x 8 0.6
+mosaic tsnr/denoised_func_data_nonaggr_tsnr.nii.gz y 8 0.6
+mosaic tsnr/denoised_func_data_nonaggr_tsnr.nii.gz z 10 0.4
+
+mosaic tsnr/denoised_func_data_nonaggr_hp_tsnr.nii.gz x 8 0.6
+mosaic tsnr/denoised_func_data_nonaggr_hp_tsnr.nii.gz y 8 0.6
+mosaic tsnr/denoised_func_data_nonaggr_hp_tsnr.nii.gz z 10 0.4
